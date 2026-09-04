@@ -1,10 +1,16 @@
-# Testing CNN Robustness on MNIST
+# Shortcut Learning on MNIST: Testing CNN Robustness
 
-This project investigates how well a convolutional neural network (CNN) trained on standard MNIST images performs when the input distribution changes. Although the baseline model achieves high accuracy on clean test data, its performance drops substantially when the digits are rotated or corrupted with Gaussian noise.
+This project explores shortcut learning by examining how a convolutional neural network trained on standard MNIST images responds when the input distribution changes. A model may achieve high test accuracy by relying on patterns that work well within its training distribution without learning features that generalize reliably to new conditions.
 
-I then train a second model using randomized rotations and noise augmentation to test whether exposure to these variations during training improves robustness.
+To investigate this behavior, I trained a baseline CNN on clean, upright MNIST images and evaluated it on rotated and noisy versions of the same dataset. I then trained a second model using randomized rotations and Gaussian noise to determine whether more diverse training data would improve robustness.
 
 This project was completed as a final project for CS 4210.
+
+## What Is Shortcut Learning?
+
+Shortcut learning occurs when a model relies on convenient patterns in its training data that produce accurate predictions without capturing the more general features people expect it to learn. These shortcuts may perform well when training and test data are similar but fail when the input distribution changes.
+
+In this experiment, sensitivity to rotation and noise is used as evidence that the baseline CNN depends heavily on characteristics of the standard MNIST distribution, including upright orientation and clean backgrounds. These results are consistent with shortcut-learning behavior, although they do not independently prove that shortcut learning is the only cause of the model's failures.
 
 ## Key Result
 
